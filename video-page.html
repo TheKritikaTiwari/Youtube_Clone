@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.min.css ">
+    
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            background-color: #f0f0f0;
+        }
+
+        #video-container{
+            max-width: 800px;
+            /* height: 00px; */
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="col-1">
+            <i class="ri-menu-line menu-line"></i>
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="Images/youtube_image.png" alt="logo" class="logo-img">
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <form action="#">
+                <input type="text" placeholder="Search">
+            </form>
+            <button class="search">
+                <i class="ri-search-line"></i>
+            </button>
+            <button class="mic">
+                <i class="ri-mic-fill"></i>
+            </button>
+        </div>
+        <div class="col-3">
+            <i class="ri-video-add-line"></i>
+            <i class="ri-notification-3-line"></i>
+            <i class="ri-user-fill"></i>            
+        </div>
+    </div>
+
+    <div class="row play-video" id="video-container"></div>
+
+    <script>
+        const embedHtml = sessionStorage.getItem("videoEmbedHtml");
+
+        if(embedHtml){
+            const playerContainer =  document.createElement("div");
+            playerContainer.innerHTML = embedHtml;
+
+            document.getElementById("video-container").appendChild(playerContainer);
+        }
+        else{
+            alert("Video embed code not found..");
+        }
+    </script>
+</body>
+</html>
